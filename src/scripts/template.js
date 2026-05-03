@@ -2,6 +2,7 @@ import '../styles/tokens.css';
 import '../styles/export.css';
 
 import prices from '../data/prices.json';
+import config from '../data/config.json';
 import { setLang, t } from './i18n.js';
 import { fmtPriceNodes } from './services.js';
 import { el, clear, $ } from './dom.js';
@@ -47,7 +48,7 @@ function renderAll(lang) {
 
 function renderFooter() {
   const foot = $('#footText');
-  if (foot) foot.textContent = 'Fern nail art';
+  if (foot) foot.textContent = config.brand;
 }
 
 export function renderTemplate({ lang = 'ua', cat = 'all' } = {}) {

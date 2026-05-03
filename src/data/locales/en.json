@@ -30,10 +30,10 @@
     "restart": "Start over",
     "total": "Estimated total",
     "summary": "Your selection",
-    "q1": { "t": "What service?", "opts": ["Manicure", "Pedicure", "Both"] },
-    "q2": { "t": "Nail length?",  "opts": ["Length 1–2", "Length 3+", "Extension needed"] },
-    "q3": { "t": "Coverage?",     "opts": ["No coating", "Single colour", "French (10 nails)"] },
-    "q4": { "t": "Add-ons?",      "opts": ["Slider art", "Rub-in / gradient", "Seal & Protect", "None"] }
+    "q1": { "t": "What service?", "opts": { "both": "Both" } },
+    "q2": { "t": "Nail length?",  "opts": { "short": "Length 1–2", "long": "Length 3+", "ext": "Extension needed" } },
+    "q3": { "t": "Coverage?",     "opts": { "none": "No coating", "single": "Single colour" } },
+    "q4": { "t": "Add-ons?",      "opts": { "slider": "Slider art", "rubin": "Rub-in / gradient", "seal": "Seal & Protect", "none": "None" } }
   },
   "contact": {
     "h": "Visit us",

@@ -1,7 +1,22 @@
 import calcConfig from '../data/calculator.json';
-import { t } from './i18n.js';
+import prices from '../data/prices.json';
+import { t, getLang } from './i18n.js';
 import { getItemById, getEstimate } from './services.js';
 import { el, clear } from './dom.js';
+
+function optionLabel(opt) {
+  const lang = getLang();
+  if (opt.labelFromCategory) {
+    const cat = prices.categories.find(c => c.id === opt.labelFromCategory);
+    if (cat?.labels?.[lang]) return cat.labels[lang];
+  }
+  if (opt.labelFromItem) {
+    const item = getItemById(opt.labelFromItem);
+    if (item?.labels?.[lang]) return item.labels[lang];
+  }
+  if (opt.labelKey) return t(opt.labelKey);
+  return opt.id;
+}
 
 const state = {
   step: 0,
@@ -68,7 +83,7 @@ function renderStep(container, step, steps) {
         },
       },
         el('span', { class: 'opt__radio' }),
-        t(opt.labelKey),
+        optionLabel(opt),
       ),
     ),
   );
@@ -112,7 +127,7 @@ function renderSummary(container, steps) {
     steps.map(step => {
       const ansId = state.answers[step.id];
       const opt = step.options.find(o => o.id === ansId);
-      const label = opt ? t(opt.labelKey) : '—';
+      const label = opt ? optionLabel(opt) : '—';
       return el('div', { class: 'sum__row' },
         el('em', {}, t(step.questionKey)),
         el('span', {}, label),

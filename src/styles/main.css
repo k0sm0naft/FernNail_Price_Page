@@ -187,9 +187,13 @@ button { font: inherit; cursor: pointer; }
 }
 .row {
   display: grid; grid-template-columns: 1fr auto;
-  gap: 16px; align-items: baseline;
-  padding: 14px 18px;
+  gap: 16px; align-items: center;
+  padding: 8px 18px;
   border-bottom: 1px solid var(--border);
+  /* Reserve room for two text lines so all rows in a card share a
+     height even when the longest service name wraps. Padding is
+     trimmed so single-line rows don't grow taller than wrapping ones. */
+  min-height: 64px;
 }
 .row:last-child { border-bottom: 0; }
 .row__name { font-size: 14px; font-weight: 500; line-height: 1.3; }

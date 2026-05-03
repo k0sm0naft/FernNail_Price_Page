@@ -1,14 +1,14 @@
 {
-  "_doc": "Data-driven calculator config. Each step has type (single|multi) and options that add or replace items from prices.json. The 'requires' field gates whether an option's effect applies (item must already be selected). 'showIf' is reserved for Phase 7 (multi/conditional steps); current renderer ignores it and shows all steps.",
+  "_doc": "Each option's label comes from one of three sources, in priority order: 1) labelFromCategory → prices.categories[*].labels[lang], 2) labelFromItem → prices.categories[*].items[*].labels[lang], 3) labelKey → locales/{lang}.json. This keeps category and item names in prices.json as the single source of truth; only labels that don't already exist there live in locales (e.g. 'Both', 'No coating'). showIf + type:'multi' are reserved for Phase 7; the renderer currently shows every type:'single' step.",
   "steps": [
     {
       "id": "service",
       "type": "single",
       "questionKey": "calc.q1.t",
       "options": [
-        { "id": "manicure", "labelKey": "calc.q1.opts.0", "addsItems": ["manicure-bare"] },
-        { "id": "pedicure", "labelKey": "calc.q1.opts.1", "addsItems": ["pedicure-full"] },
-        { "id": "both",     "labelKey": "calc.q1.opts.2", "addsItems": ["manicure-bare", "pedicure-full"] }
+        { "id": "manicure", "labelFromCategory": "manicure", "addsItems": ["manicure-bare"] },
+        { "id": "pedicure", "labelFromCategory": "pedicure", "addsItems": ["pedicure-full"] },
+        { "id": "both",     "labelKey": "calc.q1.opts.both", "addsItems": ["manicure-bare", "pedicure-full"] }
       ]
     },
     {
@@ -17,9 +17,9 @@
       "questionKey": "calc.q2.t",
       "showIf": { "step": "service", "in": ["manicure", "both"] },
       "options": [
-        { "id": "1-2", "labelKey": "calc.q2.opts.0", "addsItems": ["gel-correction-1-2"],   "replacesItems": ["manicure-bare"], "requires": ["manicure-bare"] },
-        { "id": "3+",  "labelKey": "calc.q2.opts.1", "addsItems": ["gel-correction-3plus"], "replacesItems": ["manicure-bare"], "requires": ["manicure-bare"] },
-        { "id": "ext", "labelKey": "calc.q2.opts.2", "addsItems": ["extension-3plus"],       "replacesItems": ["manicure-bare"], "requires": ["manicure-bare"] }
+        { "id": "short", "labelKey": "calc.q2.opts.short", "addsItems": ["gel-correction-1-2"],   "replacesItems": ["manicure-bare"], "requires": ["manicure-bare"] },
+        { "id": "long",  "labelKey": "calc.q2.opts.long",  "addsItems": ["gel-correction-3plus"], "replacesItems": ["manicure-bare"], "requires": ["manicure-bare"] },
+        { "id": "ext",   "labelKey": "calc.q2.opts.ext",   "addsItems": ["extension-3plus"],       "replacesItems": ["manicure-bare"], "requires": ["manicure-bare"] }
       ]
     },
     {
@@ -27,9 +27,9 @@
       "type": "single",
       "questionKey": "calc.q3.t",
       "options": [
-        { "id": "none",   "labelKey": "calc.q3.opts.0", "addsItems": [] },
-        { "id": "single", "labelKey": "calc.q3.opts.1", "addsItems": [] },
-        { "id": "french", "labelKey": "calc.q3.opts.2", "addsItems": ["french-10"] }
+        { "id": "none",   "labelKey": "calc.q3.opts.none",   "addsItems": [] },
+        { "id": "single", "labelKey": "calc.q3.opts.single", "addsItems": [] },
+        { "id": "french", "labelFromItem": "french-10",      "addsItems": ["french-10"] }
       ]
     },
     {
@@ -37,10 +37,10 @@
       "type": "single",
       "questionKey": "calc.q4.t",
       "options": [
-        { "id": "slider", "labelKey": "calc.q4.opts.0", "addsItems": ["slider-painting"] },
-        { "id": "rubin",  "labelKey": "calc.q4.opts.1", "addsItems": ["rub-in-gradient"] },
-        { "id": "seal",   "labelKey": "calc.q4.opts.2", "addsItems": ["seal-protect"] },
-        { "id": "none",   "labelKey": "calc.q4.opts.3", "addsItems": [] }
+        { "id": "slider", "labelKey": "calc.q4.opts.slider", "addsItems": ["slider-painting"] },
+        { "id": "rubin",  "labelKey": "calc.q4.opts.rubin",  "addsItems": ["rub-in-gradient"] },
+        { "id": "seal",   "labelKey": "calc.q4.opts.seal",   "addsItems": ["seal-protect"] },
+        { "id": "none",   "labelKey": "calc.q4.opts.none",   "addsItems": [] }
       ]
     }
   ]
