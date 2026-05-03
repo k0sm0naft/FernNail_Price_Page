@@ -10,10 +10,13 @@
     "contact": "Contact"
   },
   "hero": {
-    "eyebrow": "PRICE LIST · 2026",
-    "tag": "Manicure & pedicure studio · Kyiv",
+    "eyebrow": "PRICE LIST · {year}",
+    "tag": "Manicure & pedicure studio",
     "cta": "Open price list",
     "cta2": "Try the calculator"
+  },
+  "foot": {
+    "copy": "© {year}"
   },
   "calc": {
     "eyebrow": "CALCULATOR",

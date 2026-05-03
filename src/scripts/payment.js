@@ -11,12 +11,12 @@ function dialog() {
 
 function isMonoConfigured() {
   const jar = config.payment?.monobankJar;
-  return jar && jar !== JAR_PLACEHOLDER;
+  return Boolean(jar) && jar !== JAR_PLACEHOLDER;
 }
 
 function buildMonoUrl(amountUah) {
-  const jar = config.payment?.monobankJar;
-  if (!jar || jar === JAR_PLACEHOLDER) return null;
+  if (!isMonoConfigured()) return null;
+  const jar = config.payment.monobankJar;
   const kop = Math.max(0, Math.round(Number(amountUah) || 0) * 100);
   const params = new URLSearchParams();
   if (kop > 0) params.set('a', String(kop));
@@ -27,20 +27,19 @@ function buildMonoUrl(amountUah) {
 function refreshMonoLink() {
   const link = $('#payMono');
   if (!link) return;
-  const amountInput = $('#payAmount');
-  const amount = amountInput ? amountInput.value : '';
-  const url = buildMonoUrl(amount);
-  if (url) {
-    link.setAttribute('href', url);
-    link.removeAttribute('aria-disabled');
-    link.classList.remove('pay__btn-disabled');
-    link.removeAttribute('title');
-  } else {
-    link.setAttribute('href', '#');
-    link.setAttribute('aria-disabled', 'true');
-    link.classList.add('pay__btn-disabled');
-    link.setAttribute('title', t('pay.noJar'));
+  // No Monobank jar → personal-card flow: hide the deep-link entirely so
+  // the user just copies the card number into their own banking app.
+  if (!isMonoConfigured()) {
+    link.hidden = true;
+    return;
   }
+  link.hidden = false;
+  const amountInput = $('#payAmount');
+  const url = buildMonoUrl(amountInput ? amountInput.value : '');
+  link.setAttribute('href', url);
+  link.removeAttribute('aria-disabled');
+  link.classList.remove('pay__btn-disabled');
+  link.removeAttribute('title');
 }
 
 async function copyCard() {

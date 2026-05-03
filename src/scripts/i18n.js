@@ -28,10 +28,15 @@ export function setLang(lang) {
   document.documentElement.lang = LOCALES[lang]._iso || lang;
 }
 
+const PLACEHOLDERS = {
+  year: () => String(new Date().getFullYear()),
+};
+
 export function t(key, lang = currentLang) {
   const dict = LOCALES[lang];
-  const value = key.split('.').reduce((o, k) => (o == null ? undefined : o[k]), dict);
-  return value ?? key;
+  const raw = key.split('.').reduce((o, k) => (o == null ? undefined : o[k]), dict);
+  if (typeof raw !== 'string') return raw ?? key;
+  return raw.replace(/\{(\w+)\}/g, (m, k) => PLACEHOLDERS[k] ? PLACEHOLDERS[k]() : m);
 }
 
 export function renderI18n(root = document) {

@@ -39,6 +39,20 @@ function renderConfig() {
   });
 }
 
+function renderPaperAddr() {
+  const node = $('#paperAddr');
+  if (!node) return;
+  const lang = getLang();
+  const parts = [config.location?.[lang], config.hours?.[lang]].filter(s => s && s.trim());
+  if (parts.length === 0) {
+    node.hidden = true;
+    node.textContent = '';
+  } else {
+    node.hidden = false;
+    node.textContent = parts.join(' · ');
+  }
+}
+
 function syncLangPills() {
   const lang = getLang();
   $$('.ph__lang button').forEach(b => b.classList.toggle('is-on', b.dataset.lang === lang));
@@ -53,6 +67,7 @@ function renderPayUrl() {
 async function rerenderAll() {
   renderI18n();
   renderConfig();
+  renderPaperAddr();
   renderPaperServices($('#services'));
   renderPayUrl();
   syncLangPills();
