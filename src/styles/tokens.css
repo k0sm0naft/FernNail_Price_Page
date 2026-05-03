@@ -137,3 +137,8 @@ body {
   text-rendering: optimizeLegibility;
 }
 ::selection { background: var(--accent); color: var(--bg-deep); }
+
+/* HTML's `hidden` attribute usually maps to display:none via the user
+   agent stylesheet, but any class-level `display:` rule (e.g. .btn's
+   inline-flex) wins on specificity. Restore the expected behaviour. */
+[hidden] { display: none !important; }

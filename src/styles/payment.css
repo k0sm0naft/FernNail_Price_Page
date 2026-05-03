@@ -130,10 +130,12 @@
 }
 
 .pay__contacts {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+  display: flex; flex-wrap: wrap; justify-content: center;
+  gap: 8px;
 }
 .pay__contacts .chip {
-  padding: 10px; font-size: 12px;
+  padding: 10px 16px; font-size: 12px;
+  flex: 1 1 130px; max-width: 200px;
 }
 
 .pay__note {
