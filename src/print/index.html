@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Fern nail art — print</title>
+<meta name="description" content="Printable A4 price list for Fern nail art." />
+<meta name="theme-color" content="#1a201c" />
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%23131a16'/><path d='M32 6 C 40 22 46 38 48 58' stroke='%23a3d1b3' stroke-width='1.6' fill='none'/><g fill='%2380b896'><ellipse cx='34' cy='14' rx='8' ry='2.5' transform='rotate(-30 34 14)'/><ellipse cx='38' cy='24' rx='10' ry='3' transform='rotate(-30 38 24)'/><ellipse cx='42' cy='34' rx='11' ry='3' transform='rotate(-30 42 34)'/><ellipse cx='44' cy='44' rx='10' ry='3' transform='rotate(-30 44 44)'/><ellipse cx='46' cy='52' rx='8' ry='2.5' transform='rotate(-30 46 52)'/></g><g fill='%2365a07e'><ellipse cx='34' cy='14' rx='8' ry='2.5' transform='rotate(30 34 14)'/><ellipse cx='38' cy='24' rx='10' ry='3' transform='rotate(30 38 24)'/><ellipse cx='42' cy='34' rx='11' ry='3' transform='rotate(30 42 34)'/><ellipse cx='44' cy='44' rx='10' ry='3' transform='rotate(30 44 44)'/><ellipse cx='46' cy='52' rx='8' ry='2.5' transform='rotate(30 46 52)'/></g></svg>" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<header class="ph">
+  <a class="ph__back" href="../">← <span data-i18n="print.back">На сайт</span></a>
+  <button type="button" class="ph__print" id="printBtn" data-i18n="print.printBtn">Друкувати</button>
+  <div class="ph__lang" role="tablist" aria-label="Language">
+    <button type="button" data-lang="ua" class="is-on">UA</button>
+    <button type="button" data-lang="ru">RU</button>
+    <button type="button" data-lang="en">EN</button>
+  </div>
+</header>
+
+<main class="paper">
+  <div class="paper__head">
+    <h1 class="paper__brand">Fern nail art</h1>
+    <p class="paper__sub" data-i18n="hero.eyebrow">PRICE LIST · 2026</p>
+    <p class="paper__addr"><span data-config="location">Київ · Поділ</span> · <span data-config="hours">Пн–Сб 10:00–20:00</span></p>
+  </div>
+
+  <div class="paper__grid" id="services"></div>
+
+  <footer class="paper__foot">
+    <div class="paper__qr" id="qr" aria-label="Payment QR"></div>
+    <div class="paper__qr-text">
+      <small data-i18n="print.scanToPay">Скануйте QR для оплати онлайн</small>
+      <code id="qrUrl"></code>
+    </div>
+    <div class="paper__brand-foot">Fern nail art</div>
+  </footer>
+</main>
+
+<script type="module" src="../scripts/print.js"></script>
+</body>
+</html>

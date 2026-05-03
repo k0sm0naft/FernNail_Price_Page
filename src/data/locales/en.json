@@ -40,5 +40,12 @@
     "ua": { "name": "Ukrainian", "native": "Українська" },
     "ru": { "name": "Russian",   "native": "Русский" },
     "en": { "name": "English",   "native": "English" }
+  },
+  "print": {
+    "title": "Price list",
+    "printBtn": "Print",
+    "back": "Back to site",
+    "scanToPay": "Scan the QR to pay online",
+    "validFrom": "Valid from"
   }
 }

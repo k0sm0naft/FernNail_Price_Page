@@ -1,0 +1,198 @@
+/* ── Print page palette overrides (light, paper-friendly) ───────── */
+:root {
+  --paper-bg:     #faf7f2;
+  --paper-text:   #1a2e22;
+  --paper-muted:  #5b6e62;
+  --paper-accent: #4a7d63;
+  --paper-border: rgba(26, 46, 34, 0.18);
+  --paper-tint:   rgba(74, 125, 99, 0.08);
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: #1a201c;
+  color: var(--paper-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+/* ── Screen-only chrome (hidden in print) ─────────────────────── */
+.ph {
+  position: sticky; top: 0; z-index: 10;
+  display: flex; gap: 12px; align-items: center; flex-wrap: wrap;
+  padding: 12px 20px;
+  background: linear-gradient(to bottom, oklch(0.10 0.012 155 / 0.95), oklch(0.10 0.012 155 / 0.6));
+  backdrop-filter: blur(10px);
+  color: oklch(0.96 0.005 145);
+}
+.ph__back {
+  font-size: 13px; color: oklch(0.74 0.012 145); text-decoration: none;
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 14px; border: 1px solid oklch(0.45 0.025 150 / 0.85);
+  border-radius: 999px;
+}
+.ph__back:hover { color: oklch(0.86 0.110 150); border-color: oklch(0.86 0.110 150); }
+.ph__lang {
+  display: flex; gap: 4px; padding: 4px;
+  background: oklch(0.22 0.018 155 / 0.55);
+  border: 1px solid oklch(0.32 0.015 150 / 0.6);
+  border-radius: 999px;
+  margin-left: auto;
+}
+.ph__lang button {
+  background: transparent; border: 0;
+  font: inherit; font-size: 11px; font-weight: 600; letter-spacing: 0.08em;
+  padding: 5px 10px; border-radius: 999px;
+  color: oklch(0.74 0.012 145); cursor: pointer;
+}
+.ph__lang button.is-on { background: oklch(0.78 0.085 150); color: oklch(0.12 0.012 155); }
+.ph__print {
+  background: oklch(0.78 0.085 150); color: oklch(0.12 0.012 155);
+  border: 0; font: inherit; font-weight: 600; cursor: pointer;
+  padding: 8px 16px; border-radius: 999px;
+}
+.ph__print:hover { background: oklch(0.86 0.110 150); }
+
+/* ── The printable sheet ───────────────────────────────────────── */
+.paper {
+  background: var(--paper-bg);
+  color: var(--paper-text);
+  width: 210mm;
+  min-height: 297mm;
+  margin: 24px auto;
+  padding: 12mm 14mm;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 8mm;
+}
+
+.paper__head { text-align: center; }
+.paper__brand {
+  font-family: var(--font-script);
+  font-size: 56pt;
+  line-height: 1;
+  margin: 0;
+  color: var(--paper-text);
+}
+.paper__sub {
+  font-size: 8pt;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--paper-accent);
+  font-weight: 500;
+  margin: 6pt 0 0;
+}
+.paper__addr {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 10pt;
+  color: var(--paper-muted);
+  margin: 4pt 0 0;
+}
+
+.paper__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8mm 12mm;
+  align-content: start;
+}
+.paper__cat__h {
+  font-family: var(--font-script);
+  font-size: 26pt;
+  line-height: 1;
+  color: var(--paper-accent);
+  margin: 0 0 4mm;
+}
+.paper__row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 6mm;
+  align-items: baseline;
+  padding: 2.4mm 0;
+  border-bottom: 0.5pt solid var(--paper-border);
+  font-size: 10pt;
+}
+.paper__row:last-child { border-bottom: 0; }
+.paper__row__name { font-weight: 500; line-height: 1.25; }
+.paper__row__price {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.paper__row__price em { font-style: normal; color: var(--paper-muted); font-weight: 400; margin-right: 0.5mm; font-size: 9pt; }
+
+.paper__foot {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 6mm;
+  align-items: center;
+  padding-top: 6mm;
+  border-top: 0.5pt solid var(--paper-border);
+}
+.paper__qr {
+  width: 28mm; height: 28mm;
+  background: white;
+  padding: 1.5mm;
+  border: 0.5pt solid var(--paper-border);
+  border-radius: 1mm;
+  display: flex; align-items: center; justify-content: center;
+}
+.paper__qr canvas, .paper__qr svg { width: 100%; height: 100%; display: block; }
+.paper__qr-text {
+  display: flex; flex-direction: column; gap: 2mm;
+}
+.paper__qr-text small {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 10pt;
+  color: var(--paper-muted);
+}
+.paper__qr-text code {
+  font-family: ui-monospace, "SF Mono", monospace;
+  font-size: 9pt;
+  color: var(--paper-text);
+  letter-spacing: -0.01em;
+  word-break: break-all;
+}
+.paper__brand-foot {
+  font-family: var(--font-script);
+  font-size: 18pt;
+  color: var(--paper-muted);
+  text-align: right;
+  margin-left: auto;
+}
+
+/* ── Print-mode rules: just the paper ─────────────────────────── */
+@media print {
+  body { background: white !important; }
+  .ph { display: none !important; }
+  .paper {
+    width: auto;
+    min-height: auto;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+    color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  @page {
+    size: A4;
+    margin: 12mm 14mm;
+  }
+}
+
+/* ── Narrow screens — let the sheet shrink to viewport ────────── */
+@media screen and (max-width: 768px) {
+  .paper {
+    width: auto;
+    margin: 16px;
+    padding: 8mm;
+  }
+  .paper__grid { grid-template-columns: 1fr; gap: 6mm; }
+  .paper__brand { font-size: 44pt; }
+  .paper__cat__h { font-size: 22pt; }
+}
