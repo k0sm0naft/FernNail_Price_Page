@@ -134,8 +134,9 @@
   gap: 8px;
 }
 .pay__contacts .chip {
-  padding: 10px 16px; font-size: 12px;
-  flex: 1 1 130px; max-width: 200px;
+  padding: 6px 16px; font-size: 12px;
+  flex: 1 1 160px; max-width: 220px;
+  min-height: 48px;
 }
 
 .pay__note {
