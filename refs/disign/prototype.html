@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Fern nail art — manicure & pedicure studio</title>
+<meta name="description" content="Fern nail art — price list and visit calculator." />
+
+<!-- Favicon: stylised fern leaflet on dark tile -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%23131a16'/><path d='M32 6 C 40 22 46 38 48 58' stroke='%23a3d1b3' stroke-width='1.6' fill='none'/><g fill='%2380b896'><ellipse cx='34' cy='14' rx='8' ry='2.5' transform='rotate(-30 34 14)'/><ellipse cx='38' cy='24' rx='10' ry='3' transform='rotate(-30 38 24)'/><ellipse cx='42' cy='34' rx='11' ry='3' transform='rotate(-30 42 34)'/><ellipse cx='44' cy='44' rx='10' ry='3' transform='rotate(-30 44 44)'/><ellipse cx='46' cy='52' rx='8' ry='2.5' transform='rotate(-30 46 52)'/></g><g fill='%2365a07e'><ellipse cx='34' cy='14' rx='8' ry='2.5' transform='rotate(30 34 14)'/><ellipse cx='38' cy='24' rx='10' ry='3' transform='rotate(30 38 24)'/><ellipse cx='42' cy='34' rx='11' ry='3' transform='rotate(30 42 34)'/><ellipse cx='44' cy='44' rx='10' ry='3' transform='rotate(30 44 44)'/><ellipse cx='46' cy='52' rx='8' ry='2.5' transform='rotate(30 46 52)'/></g></svg>" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="assets/tokens.css" />
+<link rel="stylesheet" href="assets/prototype.css" />
+
+<style>
+  /* Local font path fix for prototype subfolder reference */
+  @font-face {
+    font-family: "Hamiltone";
+    src: url("assets/fonts/Hamiltone-Demo.otf") format("opentype");
+    font-display: swap;
+  }
+</style>
+</head>
+<body>
+
+<!-- (legacy global decorative layer removed — leaves now scoped to .hero) -->
+
+<!-- Header -->
+<header class="hd">
+  <div class="hd__brand"><span class="hd__brand-name">Fern</span><small data-i18n="hdrSub">NAIL ART</small></div>
+  <nav class="hd__nav">
+    <a href="#services" data-i18n="navServices">Послуги</a>
+    <a href="#calc" data-i18n="navCalc">Калькулятор</a>
+    <a href="#contact" data-i18n="navContact">Контакти</a>
+  </nav>
+  <div class="hd__lang" role="tablist" aria-label="Language">
+    <button data-lang="ua" class="is-on">UA</button>
+    <button data-lang="ru">RU</button>
+    <button data-lang="en">EN</button>
+  </div>
+</header>
+
+<main class="shell">
+  <!-- Hero -->
+  <section class="hero">
+    <!-- Leaf frame, scoped to the hero, anchored to its 4 corners -->
+    <div class="hero__leaves" aria-hidden="true">
+      <img class="hl hl--tl" src="assets/leaves/leafy-droop.png" data-pspeed="0.10" alt="">
+      <img class="hl hl--tr" src="assets/leaves/leafy-dark.png"  data-pspeed="0.09" alt="">
+      <img class="hl hl--bl" src="assets/leaves/fern-pair.png"   data-pspeed="0.05" alt="">
+      <img class="hl hl--br" src="assets/leaves/palm-arc.png"    data-pspeed="0.05" alt="">
+    </div>
+    <div class="hero__eye" data-i18n="heroEye">ПРАЙС-ЛИСТ · 2026</div>
+    <h1 class="hero__brand">Fern nail art</h1>
+    <p class="hero__tag" data-i18n="heroTag">Студія манікюру та педикюру · Київ</p>
+    <div class="hero__ctas">
+      <a href="#services" class="btn btn--primary" data-i18n="heroCta">Відкрити прайс</a>
+      <a href="#calc"     class="btn btn--ghost"   data-i18n="heroCta2">Калькулятор</a>
+    </div>
+  </section>
+
+  <!-- Services + sticky calculator (desktop) -->
+  <div class="has-aside">
+    <section id="services">
+      <div class="svc-grid" id="svcGrid"></div>
+    </section>
+
+    <aside id="calc" class="calc-wrap" aria-live="polite">
+      <div class="calc__eye" data-i18n="calcEye">КАЛЬКУЛЯТОР</div>
+      <h2 class="calc__h" data-i18n="calcTitle">Розрахуйте візит</h2>
+      <p class="calc__sub" data-i18n="calcSub">Чотири питання — без зобов’язань.</p>
+      <div id="calcBody"></div>
+    </aside>
+  </div>
+
+  <!-- Contact -->
+  <section id="contact" class="contact">
+    <h2 class="contact__h" data-i18n="contactH">Завітайте</h2>
+    <p class="contact__sub" data-i18n="contactSub">Напишіть — відповідаємо протягом години.</p>
+    <div class="chips">
+      <a class="chip" href="#"><span class="chip__ic">IG</span>Instagram</a>
+      <a class="chip" href="#"><span class="chip__ic">TG</span>Telegram</a>
+      <a class="chip" href="#"><span class="chip__ic">WA</span>WhatsApp</a>
+      <a class="chip" href="#"><span class="chip__ic">VB</span>Viber</a>
+    </div>
+    <p style="text-align:center;color:var(--text-muted);font-family:var(--font-serif);font-style:italic;margin-top:18px" data-i18n="contactAddr">Київ · Поділ · Пн–Сб 10:00–20:00</p>
+  </section>
+
+  <div class="foot">Fern nail art<small>© 2026</small></div>
+</main>
+
+<!-- Sticky bottom CTA (mobile) -->
+<div class="bottomCta">
+  <a href="#calc" class="btn btn--ghost"  data-i18n="navCalc">Калькулятор</a>
+  <a href="#"     class="btn btn--primary" data-i18n="book">Записатися</a>
+</div>
+
+<!-- Language modal (long-press / fallback) -->
+<div class="lm" id="lm" role="dialog" aria-modal="true">
+  <div class="lm__sheet">
+    <div class="lm__row" data-lang="ua"><div><b>Українська</b><small>Ukrainian</small></div><div class="lm__check is-on">✓</div></div>
+    <div class="lm__row" data-lang="ru"><div><b>Русский</b><small>Russian</small></div><div class="lm__check"></div></div>
+    <div class="lm__row" data-lang="en"><div><b>English</b><small>English</small></div><div class="lm__check"></div></div>
+  </div>
+</div>
+
+<script>
+/* ── i18n strings ─────────────────────────────────────────────── */
+const I18N = {
+  ua: {
+    hdrSub:'NAIL ART', navServices:'Послуги', navCalc:'Калькулятор', navContact:'Контакти',
+    heroEye:'ПРАЙС-ЛИСТ · 2026', heroTag:'Студія манікюру та педикюру · Київ',
+    heroCta:'Відкрити прайс', heroCta2:'Калькулятор', book:'Записатися',
+    calcEye:'КАЛЬКУЛЯТОР', calcTitle:'Розрахуйте візит', calcSub:'Чотири питання — без зобов’язань.',
+    contactH:'Завітайте', contactSub:'Напишіть — відповідаємо протягом години.',
+    contactAddr:'Київ · Поділ · Пн–Сб 10:00–20:00',
+    cats:{ manicure:'Манікюр', pedicure:'Педикюр', design:'Дизайн', extras:'Додаткові послуги' },
+    disclaimer:'Кінцева ціна залежить від стану шкіри та нігтів.',
+    from:'від', currency:'грн',
+    step:'Крок', of:'з', back:'Назад', next:'Далі', finish:'Підсумок',
+    restart:'Спочатку', total:'Орієнтовна сума', summary:'Ваш вибір',
+    q:[
+      { t:'Яка послуга?',    o:['Манікюр','Педикюр','Обидва'] },
+      { t:'Довжина нігтів?', o:['Довжина 1–2','Довжина 3+','Потрібне нарощування'] },
+      { t:'Покриття?',       o:['Без покриття','Один колір','Френч (10 н.)'] },
+      { t:'Доповнення?',     o:['Слайдер','Втирка / градієнт','Seal & Protect','Немає'] },
+    ],
+  },
+  ru: {
+    hdrSub:'NAIL ART', navServices:'Услуги', navCalc:'Калькулятор', navContact:'Контакты',
+    heroEye:'ПРАЙС-ЛИСТ · 2026', heroTag:'Студия маникюра и педикюра · Киев',
+    heroCta:'Открыть прайс', heroCta2:'Калькулятор', book:'Записаться',
+    calcEye:'КАЛЬКУЛЯТОР', calcTitle:'Рассчитайте визит', calcSub:'Четыре вопроса — без обязательств.',
+    contactH:'Заходите', contactSub:'Напишите — отвечаем в течение часа.',
+    contactAddr:'Киев · Подол · Пн–Сб 10:00–20:00',
+    cats:{ manicure:'Маникюр', pedicure:'Педикюр', design:'Дизайн', extras:'Доп. услуги' },
+    disclaimer:'Цена процедуры зависит от состояния кожи и ногтей.',
+    from:'от', currency:'грн',
+    step:'Шаг', of:'из', back:'Назад', next:'Далее', finish:'Итог',
+    restart:'Сначала', total:'Ориентировочно', summary:'Ваш выбор',
+    q:[
+      { t:'Какая услуга?',     o:['Маникюр','Педикюр','Оба'] },
+      { t:'Длина ногтей?',     o:['Длина 1–2','Длина 3+','Нужно наращивание'] },
+      { t:'Покрытие?',         o:['Без покрытия','Один цвет','Френч (10 н.)'] },
+      { t:'Дополнения?',       o:['Слайдер','Втирка / градиент','Seal & Protect','Нет'] },
+    ],
+  },
+  en: {
+    hdrSub:'NAIL ART', navServices:'Services', navCalc:'Calculator', navContact:'Contact',
+    heroEye:'PRICE LIST · 2026', heroTag:'Manicure & pedicure studio · Kyiv',
+    heroCta:'Open price list', heroCta2:'Try the calculator', book:'Book now',
+    calcEye:'CALCULATOR', calcTitle:'Calculate your visit', calcSub:'Four quick questions — no commitment.',
+    contactH:'Visit us', contactSub:'Tap to message — replies within an hour.',
+    contactAddr:'Kyiv · Podil · Mon–Sat 10:00–20:00',
+    cats:{ manicure:'Manicure', pedicure:'Pedicure', design:'Design', extras:'Extras' },
+    disclaimer:'Final price depends on the condition of your skin & nails.',
+    from:'from', currency:'UAH',
+    step:'Step', of:'of', back:'Back', next:'Next', finish:'See total',
+    restart:'Start over', total:'Estimated total', summary:'Your selection',
+    q:[
+      { t:'What service?', o:['Manicure','Pedicure','Both'] },
+      { t:'Nail length?',  o:['Length 1–2','Length 3+','Extension needed'] },
+      { t:'Coverage?',     o:['No coating','Single colour','French (10 nails)'] },
+      { t:'Add-ons?',      o:['Slider art','Rub-in / gradient','Seal & Protect','None'] },
+    ],
+  },
+};
+
+/* ── Price data ───────────────────────────────────────────────── */
+const PRICES = {
+  manicure: [
+    { en:'Manicure without coating', ua:'Манікюр без покриття', ru:'Маникюр без покрытия', price: 250 },
+    { en:'Gel correction · length 1–2', ua:'Корекція гель · довжина 1–2', ru:'Коррекция гель · длина 1–2', price: 450 },
+    { en:'Gel correction · length 3+', ua:'Корекція гель · довжина 3+', ru:'Коррекция гель · длина 3+', price: 600, from: true },
+    { en:'Extension · length 1–2', ua:'Нарощування · довжина 1–2', ru:'Наращивание · длина 1–2', price: 700 },
+    { en:'Extension · length 3+', ua:'Нарощування · довжина 3+', ru:'Наращивание · длина 3+', price: 800, from: true },
+  ],
+  pedicure: [
+    { en:'Full complex (heels + toes + colour)', ua:'Повний комплекс (п’ятки + пальці + колір)', ru:'Полный комплекс (пятки + пальцы + цвет)', price: 550 },
+    { en:'Heels + toes (no coating)', ua:'П’ятки + пальці (без покриття)', ru:'Пятки + пальцы (без покрытия)', price: 500 },
+    { en:'Toes + coating', ua:'Пальці + покриття', ru:'Пальцы + покрытие', price: 450 },
+    { en:'Foot / toe cleaning (no coating)', ua:'Чистка стопи / пальців (без покриття)', ru:'Чистка стопы / пальцев (без покрытия)', price: 250, from: true, info: true },
+    { en:'Nail correction · onycholysis, hematoma, ingrown', ua:'Зачистка нігтя · оніхолізис, гематома, врослий', ru:'Зачистка ногтя · онихолизис, гематома, вросший', price: 50, from: true, info: true },
+  ],
+  design: [
+    { en:'French (10 nails)', ua:'Френч (10 н.)', ru:'Френч (10 н.)', price: 50 },
+    { en:'Slider / painting (1 nail)', ua:'Слайдер / розпис (1 н.)', ru:'Слайдер / роспись (1 н.)', price: 10, from: true },
+    { en:'Rub-in / gradient (2–10 nails)', ua:'Втирка / градієнт (2–10 н.)', ru:'Втирка / градиент (2–10 н.)', range: '20–100' },
+    { en:'Encrustation (1 nail)', ua:'Інкрустація (1 н.)', ru:'Инкрустация (1 н.)', range: '10–20' },
+  ],
+  extras: [
+    { en:'Coating removal', ua:'Зняття покриття', ru:'Снятие покрытия', price: 100 },
+    { en:'Repair (1 nail)', ua:'Ремонт (1 н.)', ru:'Ремонт (1 н.)', price: 50 },
+    { en:'Seal & Protect system', ua:'Система Seal & Protect', ru:'Система Seal & Protect', price: 70 },
+  ],
+};
+
+/* ── State ────────────────────────────────────────────────────── */
+let lang = localStorage.getItem('fa.lang') || 'ua';
+let calcStep = 0;          // 0..3 = questions, 4 = summary
+const calcAns = [null,null,null,null];
+
+/* ── Helpers ──────────────────────────────────────────────────── */
+const $ = (s, r=document) => r.querySelector(s);
+const $$ = (s, r=document) => [...r.querySelectorAll(s)];
+const fmt = row => {
+  const c = I18N[lang];
+  if (row.range) return `${row.range} ${c.currency}`;
+  if (row.from)  return `<em>${c.from}</em>${row.price} ${c.currency}`;
+  return `${row.price} ${c.currency}`;
+};
+
+/* ── Render: services ─────────────────────────────────────────── */
+function renderServices() {
+  const c = I18N[lang];
+  const wrap = $('#svcGrid');
+  wrap.innerHTML = '';
+  ['manicure','pedicure','design','extras'].forEach(key => {
+    const cat = document.createElement('div');
+    cat.innerHTML = `
+      <h2 class="cat__h">${c.cats[key]}</h2>
+      <div class="card">
+        ${PRICES[key].map(row => `
+          <div class="row">
+            <div class="row__name">
+              ${row[lang]}
+              ${row.info ? `<span class="info" tabindex="0">i<span class="info__tip">${c.disclaimer}</span></span>` : ''}
+            </div>
+            <div class="row__price">${fmt(row)}</div>
+          </div>
+        `).join('')}
+      </div>
+    `;
+    wrap.appendChild(cat);
+  });
+}
+
+/* ── Render: calculator ───────────────────────────────────────── */
+function calcEstimate() {
+  // Coarse estimator built from PRICES so the demo total feels real.
+  const [s, l, cov, extra] = calcAns;
+  let total = 0;
+  if (s === 0 || s === 2) {
+    if (l === 0) total += 450;        // length 1–2 → gel corr
+    else if (l === 1) total += 600;   // 3+
+    else if (l === 2) total += 800;   // extension
+    else total += 250;                // bare manicure
+  }
+  if (s === 1 || s === 2) total += 550; // pedicure full
+  if (cov === 2) total += 50;           // french
+  if (extra === 0) total += 50;         // slider
+  if (extra === 1) total += 60;         // rub-in mid
+  if (extra === 2) total += 70;         // seal&protect
+  return total;
+}
+function renderCalc() {
+  const c = I18N[lang];
+  const body = $('#calcBody');
+  if (calcStep < 4) {
+    const q = c.q[calcStep];
+    body.innerHTML = `
+      <div class="calc__progress">
+        ${[0,1,2,3].map(i => `<div class="calc__pip ${i<=calcStep?'is-on':''}"></div>`).join('')}
+      </div>
+      <div class="calc__step">${c.step} ${calcStep+1} ${c.of} 4</div>
+      <h3 class="calc__q">${q.t}</h3>
+      <div class="calc__opts">
+        ${q.o.map((opt, i) => `
+          <button class="opt ${calcAns[calcStep]===i?'is-on':''}" data-pick="${i}">
+            <span class="opt__radio"></span>${opt}
+          </button>
+        `).join('')}
+      </div>
+      <div class="calc__nav">
+        <button class="btn btn--ghost" data-act="back" ${calcStep===0?'disabled style="opacity:.4"':''}>← ${c.back}</button>
+        <button class="btn btn--primary" data-act="next" ${calcAns[calcStep]==null?'disabled style="opacity:.4"':''}>
+          ${calcStep===3 ? c.finish : c.next} →
+        </button>
+      </div>`;
+  } else {
+    const total = calcEstimate();
+    body.innerHTML = `
+      <div class="calc__step">${c.summary}</div>
+      <div class="sum__rows">
+        ${c.q.map((q, i) => `
+          <div class="sum__row"><em>${q.t}</em><span>${q.o[calcAns[i]] ?? '—'}</span></div>
+        `).join('')}
+      </div>
+      <div class="sum__total">
+        <div><small>${c.total}</small><b>${total} ${c.currency}</b></div>
+        <a class="btn btn--primary" href="#">${c.book}</a>
+      </div>
+      <button class="btn btn--ghost btn--block" data-act="reset">↺ ${c.restart}</button>
+    `;
+  }
+}
+
+/* ── Render: i18n attributes ──────────────────────────────────── */
+function renderI18n() {
+  const c = I18N[lang];
+  document.documentElement.lang = lang === 'ua' ? 'uk' : lang;
+  $$('[data-i18n]').forEach(el => {
+    const k = el.dataset.i18n;
+    if (c[k]) el.textContent = c[k];
+  });
+  $$('.hd__lang button').forEach(b => b.classList.toggle('is-on', b.dataset.lang === lang));
+  $$('.lm__row').forEach(r => r.querySelector('.lm__check').classList.toggle('is-on', r.dataset.lang === lang));
+}
+function setLang(l) {
+  lang = l; localStorage.setItem('fa.lang', l);
+  renderI18n(); renderServices(); renderCalc();
+}
+
+/* ── Events ───────────────────────────────────────────────────── */
+$$('.hd__lang button').forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
+$$('.lm__row').forEach(r => r.addEventListener('click', () => { setLang(r.dataset.lang); $('#lm').classList.remove('is-open'); }));
+
+document.addEventListener('click', e => {
+  const pick = e.target.closest('[data-pick]');
+  if (pick) { calcAns[calcStep] = +pick.dataset.pick; renderCalc(); return; }
+  const act = e.target.closest('[data-act]');
+  if (!act) return;
+  if (act.dataset.act === 'next' && calcAns[calcStep] != null) {
+    calcStep = Math.min(4, calcStep + 1); renderCalc();
+    if (innerWidth < 1100) act.scrollIntoView({ behavior:'smooth', block:'start' });
+  } else if (act.dataset.act === 'back') {
+    calcStep = Math.max(0, calcStep - 1); renderCalc();
+  } else if (act.dataset.act === 'reset') {
+    calcStep = 0; calcAns.fill(null); renderCalc();
+  }
+});
+
+/* Smooth-scroll local anchors (avoid scrollIntoView on document.body) */
+$$('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
+  const id = a.getAttribute('href').slice(1);
+  const t = document.getElementById(id);
+  if (t) { e.preventDefault(); window.scrollTo({ top: t.offsetTop - 70, behavior:'smooth' }); }
+}));
+
+/* Parallax: translate leaves with scroll, throttle via rAF */
+const leaves = $$('.hl');
+let ticking = false;
+addEventListener('scroll', () => {
+  if (ticking) return;
+  ticking = true;
+  requestAnimationFrame(() => {
+    const y = window.scrollY;
+    leaves.forEach(s => {
+      const sp = parseFloat(s.dataset.pspeed || 0.06);
+      const baseT = s.dataset.baseT || s.style.transform || '';
+      if (!s.dataset.baseT) s.dataset.baseT = baseT;
+      s.style.transform = `${s.dataset.baseT} translateY(${(-y * sp).toFixed(1)}px)`;
+    });
+    ticking = false;
+  });
+}, { passive: true });
+
+/* Init */
+renderI18n();
+renderServices();
+renderCalc();
+</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 160" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <linearGradient id="lf" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="oklch(0.50 0.075 150)"></stop>
+      <stop offset="1" stop-color="oklch(0.30 0.055 150)"></stop>
+    </linearGradient>
+  </defs>
+  <path d="M 40 4 C 12 30, 12 130, 40 156 C 68 130, 68 30, 40 4 Z" fill="url(#lf)"></path>
+  <path d="M 40 6 L 40 154" stroke="oklch(0.62 0.075 150)" stroke-width="0.8" opacity=".55"></path>
+  <g stroke="oklch(0.60 0.075 150)" stroke-width="0.5" opacity=".35" fill="none">
+    <path d="M 40 30 Q 26 36 16 50"></path>
+    <path d="M 40 30 Q 54 36 64 50"></path>
+    <path d="M 40 60 Q 22 68 12 88"></path>
+    <path d="M 40 60 Q 58 68 68 88"></path>
+    <path d="M 40 95 Q 24 104 14 122"></path>
+    <path d="M 40 95 Q 56 104 66 122"></path>
+    <path d="M 40 125 Q 28 134 22 144"></path>
+    <path d="M 40 125 Q 52 134 58 144"></path>
+  </g>
+</svg>

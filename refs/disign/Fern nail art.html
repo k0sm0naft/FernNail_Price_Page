@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Fern nail art — design exploration</title>
+
+<!-- Google Fonts: Manrope + Cormorant -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="assets/tokens.css" />
+<link rel="stylesheet" href="assets/site.css" />
+
+<style>
+  body { margin: 0; }
+</style>
+</head>
+<body>
+
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="design-canvas.jsx"></script>
+<script type="text/babel" src="primitives.jsx"></script>
+<script type="text/babel" src="artboards.jsx"></script>
+
+<script type="text/babel">
+const { useState } = React;
+
+function App() {
+  return (
+    <DesignCanvas title="Fern nail art — site exploration"
+                  subtitle="Design tokens · mockups at 3 breakpoints · interactive prototype">
+      <DCSection id="overview" title="Design system">
+        <DCArtboard id="styleguide" label="Tokens · Type · Color · Spacing" width={1280} height={1500}>
+          <StyleGuide />
+        </DCArtboard>
+      </DCSection>
+
+      <DCSection id="mobile" title="Mobile · 375 px (priority)">
+        <DCArtboard id="m-landing" label="A · Landing — UA"  width={375} height={812}>
+          <MobileLanding lang="ua" />
+        </DCArtboard>
+        <DCArtboard id="m-services" label="B · Services scroll — RU" width={375} height={1900}>
+          <MobileServices lang="ru" />
+        </DCArtboard>
+        <DCArtboard id="m-calc" label="C · Calculator step 2/4 — UA" width={375} height={812}>
+          <MobileCalcStep lang="ua" step={2} />
+        </DCArtboard>
+        <DCArtboard id="m-summary" label="D · Calculator summary — UA" width={375} height={812}>
+          <MobileCalcSummary lang="ua" />
+        </DCArtboard>
+        <DCArtboard id="m-lang" label="E · Language switcher open" width={375} height={812}>
+          <MobileLangOpen lang="ua" />
+        </DCArtboard>
+        <DCArtboard id="m-en" label="A · Landing — EN" width={375} height={812}>
+          <MobileLanding lang="en" />
+        </DCArtboard>
+      </DCSection>
+
+      <DCSection id="tablet" title="Tablet · 768 px">
+        <DCArtboard id="t-services" label="Services — UA" width={768} height={1024}>
+          <Tablet lang="ua" />
+        </DCArtboard>
+      </DCSection>
+
+      <DCSection id="desktop" title="Desktop · 1440 px (services left, sticky calculator right)">
+        <DCArtboard id="d-services" label="Full layout — UA" width={1440} height={1100}>
+          <Desktop lang="ua" />
+        </DCArtboard>
+        <DCArtboard id="d-services-en" label="Full layout — EN" width={1440} height={1100}>
+          <Desktop lang="en" />
+        </DCArtboard>
+      </DCSection>
+
+      <DCSection id="prototype" title="Live prototype">
+        <DCArtboard id="proto" label="Interactive · responsive · all 3 languages · working calculator" width={1200} height={780}>
+          <iframe src="prototype.html" style={{ width:'100%', height:'100%', border:0, borderRadius: 8, background:'var(--bg-deep)' }} />
+        </DCArtboard>
+      </DCSection>
+    </DesignCanvas>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+
+</body>
+</html>
