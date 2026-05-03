@@ -3,7 +3,7 @@ import { defineConfig } from 'vite';
 export default defineConfig({
   root: 'src',
   publicDir: '../public',
-  base: './',
+  base: process.env.VITE_BASE || '/',
   build: {
     outDir: '../dist',
     emptyOutDir: true,
