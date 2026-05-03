@@ -21,7 +21,10 @@ function renderSingleCategory(catId, lang) {
   if (titleEl) titleEl.textContent = cat.labels[lang];
   if (listEl) {
     clear(listEl);
-    for (const item of cat.items) listEl.append(renderRow(item, lang));
+    const card = el('div', { class: 'tpl__card' },
+      cat.items.map(item => renderRow(item, lang)),
+    );
+    listEl.append(card);
   }
 }
 
@@ -35,22 +38,16 @@ function renderAll(lang) {
     for (const cat of prices.categories) {
       const group = el('div', { class: 'tpl__group', dataset: { cat: cat.id } },
         el('h2', { class: 'tpl__group__h' }, cat.labels[lang]),
-        el('div', { class: 'tpl__group__rows' },
-          cat.items.map(item => renderRow(item, lang)),
-        ),
+        cat.items.map(item => renderRow(item, lang)),
       );
       listEl.append(group);
     }
   }
 }
 
-function renderFooter(lang) {
+function renderFooter() {
   const foot = $('#footText');
-  if (foot) {
-    foot.textContent = '';
-    const small = el('small', {}, `Fern nail art · ${t('hero.eyebrow')}`);
-    foot.append('Fern nail art', small);
-  }
+  if (foot) foot.textContent = 'Fern nail art';
 }
 
 export function renderTemplate({ lang = 'ua', cat = 'all' } = {}) {
@@ -58,7 +55,7 @@ export function renderTemplate({ lang = 'ua', cat = 'all' } = {}) {
   document.documentElement.lang = lang === 'ua' ? 'uk' : lang;
   if (cat === 'all') renderAll(lang);
   else renderSingleCategory(cat, lang);
-  renderFooter(lang);
+  renderFooter();
   document.body.dataset.ready = '1';
 }
 

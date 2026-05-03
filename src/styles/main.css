@@ -16,52 +16,52 @@ button { font: inherit; cursor: pointer; }
 /* ── Decorative leaves: hero-scoped, anchored to corners ────────── */
 .deco { display: none; }  /* legacy global container disabled */
 
+/* Hero hosts the top leaves; .contact hosts the bottom leaves. Splitting
+   the four corner anchors across two sections frames the whole page,
+   not just the hero band. */
 .hero { position: relative; overflow: hidden; }
 .hero__leaves {
   position: absolute; inset: 0; z-index: 0; pointer-events: none;
   overflow: hidden;
 }
 .hero > :not(.hero__leaves) { position: relative; z-index: 1; }
+.contact { position: relative; overflow: hidden; }
+.contact__leaves {
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  overflow: hidden;
+}
+.contact > :not(.contact__leaves) { position: relative; z-index: 1; }
 .hl { position: absolute; display: block; }
 
-/* Top-left: dark leafy droop. Asset hangs DOWN from its top edge → align top edge to hero top, push left.
-   Native 601×570. Show ~70% horizontally so it reads as growing in from the corner. */
+/* Crop kept moderate (not flush to the edge) so the leaf reads as a frond
+   growing inward, not as a wall slice. Adjust offsets to taste. */
 .hl--tl {
-  top: -40px; left: -120px;
-  width: 320px; height: auto;
+  top: -30px; left: -70px;
+  width: 380px; height: auto;
 }
-
-/* Top-right: dark leafy bunch (530×478) — also hangs from top.
-   Mirror horizontally so its weight falls toward the right corner. */
 .hl--tr {
-  top: -30px; right: -100px;
-  width: 300px; height: auto;
+  top: -20px; right: -70px;
+  width: 360px; height: auto;
   transform: scaleX(-1);
 }
-
-/* Bottom-left: sage fern-pair (1236×869) — its TL fern grows from the LEFT-TOP of the asset.
-   Flip vertically so the fern grows UP from the bottom-left corner. */
 .hl--bl {
-  bottom: -120px; left: -160px;
-  width: 720px; height: auto;
+  bottom: -100px; left: -120px;
+  width: 620px; height: auto;
   transform: scaleY(-1);
-  opacity: .9;
+  opacity: .85;
 }
-
-/* Bottom-right: sage palm-arc (1166×698) — stem at bottom-right, arcs up-left.
-   Flip vertically to anchor stem in the bottom-right corner with the arc rising. */
 .hl--br {
-  bottom: -100px; right: -180px;
-  width: 600px; height: auto;
+  bottom: -80px; right: -140px;
+  width: 540px; height: auto;
   transform: scaleY(-1) scaleX(-1);
-  opacity: .9;
+  opacity: .85;
 }
 
 @media (max-width: 720px) {
-  .hl--tl { width: 200px; left: -70px; top: -20px; }
-  .hl--tr { width: 200px; right: -70px; top: -20px; }
-  .hl--bl { width: 420px; left: -90px; bottom: -70px; }
-  .hl--br { width: 360px; right: -100px; bottom: -60px; }
+  .hl--tl { width: 220px; left: -50px; top: -10px; }
+  .hl--tr { width: 220px; right: -50px; top: -10px; }
+  .hl--bl { width: 380px; left: -70px; bottom: -50px; }
+  .hl--br { width: 320px; right: -80px; bottom: -50px; }
 }
 
 /* ── Sticky header ───────────────────────────────────────────────── */
@@ -81,8 +81,8 @@ button { font: inherit; cursor: pointer; }
   line-height: 1;
 }
 .hd__brand-name {
-  font-family: var(--font-script);
-  font-size: 32px;
+  font-family: var(--font-brand);
+  font-size: 28px;
   line-height: 0.9;
   color: var(--text);
   display: block;
@@ -138,7 +138,7 @@ button { font: inherit; cursor: pointer; }
   text-transform: uppercase; color: var(--accent); font-weight: 500;
 }
 .hero__brand {
-  font-family: var(--font-script);
+  font-family: var(--font-brand);
   font-size: clamp(56px, 14vw, 124px);
   line-height: 0.95;
   margin: 12px 0 4px;
@@ -173,8 +173,8 @@ button { font: inherit; cursor: pointer; }
 @media (min-width: 1100px) { .svc-grid { grid-template-columns: 1fr 1fr; } }
 
 .cat__h {
-  font-family: var(--font-script);
-  font-size: clamp(40px, 6vw, 56px);
+  font-family: var(--font-display);
+  font-size: clamp(44px, 7vw, 64px);
   line-height: 1; color: var(--accent);
   margin: 0 0 18px;
 }
@@ -264,15 +264,15 @@ button { font: inherit; cursor: pointer; }
   text-transform: uppercase; color: var(--accent); font-weight: 500;
 }
 .calc__h {
-  font-family: var(--font-script);
-  font-size: 44px; line-height: 1; margin: 6px 0 4px;
+  font-family: var(--font-display);
+  font-size: 48px; line-height: 1; margin: 6px 0 4px;
 }
 .calc__sub { font-family: var(--font-serif); font-style: italic; color: var(--text-muted); margin: 0 0 20px; }
 .calc__progress { display: flex; gap: 6px; margin-bottom: 20px; }
 .calc__pip { flex: 1; height: 3px; border-radius: 2px; background: var(--border); transition: background var(--dur); }
 .calc__pip.is-on { background: var(--accent); }
 .calc__step { font-size: 10px; letter-spacing: var(--tr-eyebrow); color: var(--accent); text-transform: uppercase; }
-.calc__q { font-family: var(--font-script); font-size: 36px; line-height: 1; color: var(--text); margin: 6px 0 18px; }
+.calc__q { font-family: var(--font-display); font-size: 38px; line-height: 1.05; color: var(--text); margin: 6px 0 18px; }
 .calc__opts { display: flex; flex-direction: column; gap: 12px; }
 .opt {
   padding: 16px 18px;
@@ -321,11 +321,11 @@ button { font: inherit; cursor: pointer; }
   margin-bottom: 12px;
 }
 .sum__total small { display:block; font-size:10px; letter-spacing:var(--tr-eyebrow); text-transform:uppercase; color:var(--accent); margin-bottom:4px; }
-.sum__total b { font-family: var(--font-script); font-size: 38px; color: var(--text); font-weight: 400; line-height: 1; }
+.sum__total b { font-family: var(--font-display); font-size: 40px; color: var(--text); font-weight: 500; line-height: 1; }
 
 /* ── Contact ─────────────────────────────────────────────────────── */
-.contact { padding: 32px 0; }
-.contact__h { font-family: var(--font-script); font-size: clamp(40px, 6vw, 56px); color: var(--accent); margin: 0 0 6px; line-height: 1; }
+.contact { padding: 56px 0 80px; }
+.contact__h { font-family: var(--font-display); font-size: clamp(44px, 7vw, 64px); color: var(--accent); margin: 0 0 6px; line-height: 1; }
 .contact__sub { font-family: var(--font-serif); font-style: italic; color: var(--text-muted); margin: 0 0 18px; }
 .chips { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
 @media (min-width: 600px) { .chips { grid-template-columns: repeat(4, 1fr); } }
@@ -351,7 +351,7 @@ button { font: inherit; cursor: pointer; }
 
 .foot {
   text-align: center; margin-top: 32px;
-  font-family: var(--font-script); font-size: 36px; color: var(--text-muted);
+  font-family: var(--font-brand); font-size: 36px; color: var(--text-muted);
 }
 .foot small { display:block; font-family: var(--font-sans); font-size: 11px; letter-spacing: var(--tr-eyebrow); text-transform: uppercase; margin-top: 6px; }
 
