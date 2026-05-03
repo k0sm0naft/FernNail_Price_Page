@@ -1,0 +1,219 @@
+{
+  "currency": "UAH",
+  "categories": [
+    {
+      "id": "manicure",
+      "exportable": true,
+      "labels": {
+        "ua": "Манікюр",
+        "ru": "Маникюр",
+        "en": "Manicure"
+      },
+      "items": [
+        {
+          "id": "manicure-bare",
+          "labels": {
+            "ua": "Манікюр без покриття",
+            "ru": "Маникюр без покрытия",
+            "en": "Manicure without coating"
+          },
+          "price": 250
+        },
+        {
+          "id": "gel-correction-1-2",
+          "labels": {
+            "ua": "Корекція гель · довжина 1–2",
+            "ru": "Коррекция гель · длина 1–2",
+            "en": "Gel correction · length 1–2"
+          },
+          "price": 450
+        },
+        {
+          "id": "gel-correction-3plus",
+          "labels": {
+            "ua": "Корекція гель · довжина 3+",
+            "ru": "Коррекция гель · длина 3+",
+            "en": "Gel correction · length 3+"
+          },
+          "price": 600,
+          "from": true
+        },
+        {
+          "id": "extension-1-2",
+          "labels": {
+            "ua": "Нарощування · довжина 1–2",
+            "ru": "Наращивание · длина 1–2",
+            "en": "Extension · length 1–2"
+          },
+          "price": 700
+        },
+        {
+          "id": "extension-3plus",
+          "labels": {
+            "ua": "Нарощування · довжина 3+",
+            "ru": "Наращивание · длина 3+",
+            "en": "Extension · length 3+"
+          },
+          "price": 800,
+          "from": true
+        }
+      ]
+    },
+    {
+      "id": "pedicure",
+      "exportable": true,
+      "labels": {
+        "ua": "Педикюр",
+        "ru": "Педикюр",
+        "en": "Pedicure"
+      },
+      "items": [
+        {
+          "id": "pedicure-full",
+          "labels": {
+            "ua": "Повний комплекс (п’ятки + пальці + колір)",
+            "ru": "Полный комплекс (пятки + пальцы + цвет)",
+            "en": "Full complex (heels + toes + colour)"
+          },
+          "price": 550
+        },
+        {
+          "id": "pedicure-no-coat",
+          "labels": {
+            "ua": "П’ятки + пальці (без покриття)",
+            "ru": "Пятки + пальцы (без покрытия)",
+            "en": "Heels + toes (no coating)"
+          },
+          "price": 500
+        },
+        {
+          "id": "pedicure-toes-coat",
+          "labels": {
+            "ua": "Пальці + покриття",
+            "ru": "Пальцы + покрытие",
+            "en": "Toes + coating"
+          },
+          "price": 450
+        },
+        {
+          "id": "foot-cleaning",
+          "labels": {
+            "ua": "Чистка стопи / пальців (без покриття)",
+            "ru": "Чистка стопы / пальцев (без покрытия)",
+            "en": "Foot / toe cleaning (no coating)"
+          },
+          "price": 250,
+          "from": true,
+          "info": "skin-condition"
+        },
+        {
+          "id": "nail-correction",
+          "labels": {
+            "ua": "Зачистка нігтя · оніхолізис, гематома, врослий",
+            "ru": "Зачистка ногтя · онихолизис, гематома, вросший",
+            "en": "Nail correction · onycholysis, hematoma, ingrown"
+          },
+          "price": 50,
+          "from": true,
+          "info": "skin-condition"
+        }
+      ]
+    },
+    {
+      "id": "design",
+      "exportable": true,
+      "labels": {
+        "ua": "Дизайн",
+        "ru": "Дизайн",
+        "en": "Design"
+      },
+      "items": [
+        {
+          "id": "french-10",
+          "labels": {
+            "ua": "Френч (10 н.)",
+            "ru": "Френч (10 н.)",
+            "en": "French (10 nails)"
+          },
+          "price": 50
+        },
+        {
+          "id": "slider-painting",
+          "labels": {
+            "ua": "Слайдер / розпис (1 н.)",
+            "ru": "Слайдер / роспись (1 н.)",
+            "en": "Slider / painting (1 nail)"
+          },
+          "price": 10,
+          "from": true,
+          "estimatePrice": 50
+        },
+        {
+          "id": "rub-in-gradient",
+          "labels": {
+            "ua": "Втирка / градієнт (2–10 н.)",
+            "ru": "Втирка / градиент (2–10 н.)",
+            "en": "Rub-in / gradient (2–10 nails)"
+          },
+          "range": "20–100",
+          "estimatePrice": 60
+        },
+        {
+          "id": "encrustation",
+          "labels": {
+            "ua": "Інкрустація (1 н.)",
+            "ru": "Инкрустация (1 н.)",
+            "en": "Encrustation (1 nail)"
+          },
+          "range": "10–20",
+          "estimatePrice": 15
+        }
+      ]
+    },
+    {
+      "id": "extras",
+      "exportable": true,
+      "labels": {
+        "ua": "Додаткові послуги",
+        "ru": "Доп. услуги",
+        "en": "Extras"
+      },
+      "items": [
+        {
+          "id": "coating-removal",
+          "labels": {
+            "ua": "Зняття покриття",
+            "ru": "Снятие покрытия",
+            "en": "Coating removal"
+          },
+          "price": 100
+        },
+        {
+          "id": "repair-1",
+          "labels": {
+            "ua": "Ремонт (1 н.)",
+            "ru": "Ремонт (1 н.)",
+            "en": "Repair (1 nail)"
+          },
+          "price": 50
+        },
+        {
+          "id": "seal-protect",
+          "labels": {
+            "ua": "Система Seal & Protect",
+            "ru": "Система Seal & Protect",
+            "en": "Seal & Protect system"
+          },
+          "price": 70
+        }
+      ]
+    }
+  ],
+  "tooltips": {
+    "skin-condition": {
+      "ua": "Кінцева ціна залежить від стану шкіри та нігтів.",
+      "ru": "Цена процедуры зависит от состояния кожи и ногтей.",
+      "en": "Final price depends on the condition of your skin & nails."
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "brand": "Fern nail art",
+  "subtitle": "NAIL ART",
+  "year": "2026",
+  "location": {
+    "ua": "Київ · Поділ",
+    "ru": "Киев · Подол",
+    "en": "Kyiv · Podil"
+  },
+  "hours": {
+    "ua": "Пн–Сб 10:00–20:00",
+    "ru": "Пн–Сб 10:00–20:00",
+    "en": "Mon–Sat 10:00–20:00"
+  },
+  "contacts": {
+    "instagram": "https://instagram.com/PLACEHOLDER",
+    "telegram": "https://t.me/PLACEHOLDER",
+    "whatsapp": "https://wa.me/380000000000",
+    "viber": "viber://chat?number=%2B380000000000"
+  },
+  "payment": {
+    "card": "5375 4141 0000 0000",
+    "recipient": "Fern nail art",
+    "monobankJar": "PLACEHOLDER_JAR_ID"
+  }
+}

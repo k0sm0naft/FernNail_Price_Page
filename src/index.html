@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Fern nail art — manicure & pedicure studio</title>
+<meta name="description" content="Fern nail art — price list and visit calculator." />
+<meta name="theme-color" content="#1a201c" />
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%23131a16'/><path d='M32 6 C 40 22 46 38 48 58' stroke='%23a3d1b3' stroke-width='1.6' fill='none'/><g fill='%2380b896'><ellipse cx='34' cy='14' rx='8' ry='2.5' transform='rotate(-30 34 14)'/><ellipse cx='38' cy='24' rx='10' ry='3' transform='rotate(-30 38 24)'/><ellipse cx='42' cy='34' rx='11' ry='3' transform='rotate(-30 42 34)'/><ellipse cx='44' cy='44' rx='10' ry='3' transform='rotate(-30 44 44)'/><ellipse cx='46' cy='52' rx='8' ry='2.5' transform='rotate(-30 46 52)'/></g><g fill='%2365a07e'><ellipse cx='34' cy='14' rx='8' ry='2.5' transform='rotate(30 34 14)'/><ellipse cx='38' cy='24' rx='10' ry='3' transform='rotate(30 38 24)'/><ellipse cx='42' cy='34' rx='11' ry='3' transform='rotate(30 42 34)'/><ellipse cx='44' cy='44' rx='10' ry='3' transform='rotate(30 44 44)'/><ellipse cx='46' cy='52' rx='8' ry='2.5' transform='rotate(30 46 52)'/></g></svg>" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet" />
+
+<style>body{margin:0}</style>
+</head>
+<body>
+
+<header class="hd">
+  <div class="hd__brand">
+    <span class="hd__brand-name">Fern</span>
+    <small>NAIL ART</small>
+  </div>
+  <nav class="hd__nav">
+    <a href="#services" data-i18n="nav.services">Послуги</a>
+    <a href="#calc"     data-i18n="nav.calculator">Калькулятор</a>
+    <a href="#contact"  data-i18n="nav.contact">Контакти</a>
+  </nav>
+  <div class="hd__lang" role="tablist" aria-label="Language">
+    <button type="button" data-lang="ua" class="is-on">UA</button>
+    <button type="button" data-lang="ru">RU</button>
+    <button type="button" data-lang="en">EN</button>
+  </div>
+</header>
+
+<main class="shell">
+  <section class="hero">
+    <div class="hero__leaves" aria-hidden="true">
+      <img class="hl hl--tl" src="/assets/leaves/leafy-droop.png" data-pspeed="0.10" alt="" />
+      <img class="hl hl--tr" src="/assets/leaves/leafy-dark.png"  data-pspeed="0.09" alt="" />
+      <img class="hl hl--bl" src="/assets/leaves/fern-pair.png"   data-pspeed="0.05" alt="" />
+      <img class="hl hl--br" src="/assets/leaves/palm-arc.png"    data-pspeed="0.05" alt="" />
+    </div>
+    <div class="hero__eye" data-i18n="hero.eyebrow">ПРАЙС-ЛИСТ · 2026</div>
+    <h1 class="hero__brand">Fern nail art</h1>
+    <p class="hero__tag" data-i18n="hero.tag">Студія манікюру та педикюру · Київ</p>
+    <div class="hero__ctas">
+      <a href="#services" class="btn btn--primary" data-i18n="hero.cta">Відкрити прайс</a>
+      <a href="#calc"     class="btn btn--ghost"   data-i18n="hero.cta2">Калькулятор</a>
+    </div>
+  </section>
+
+  <div class="has-aside">
+    <section id="services">
+      <div class="svc-grid" id="svcGrid"></div>
+    </section>
+
+    <aside id="calc" class="calc-wrap" aria-live="polite">
+      <div class="calc__eye" data-i18n="calc.eyebrow">КАЛЬКУЛЯТОР</div>
+      <h2 class="calc__h" data-i18n="calc.title">Розрахуйте візит</h2>
+      <p class="calc__sub" data-i18n="calc.subtitle">Чотири питання — без зобов’язань.</p>
+      <div id="calcBody"></div>
+    </aside>
+  </div>
+
+  <section id="contact" class="contact">
+    <h2 class="contact__h" data-i18n="contact.h">Завітайте</h2>
+    <p class="contact__sub" data-i18n="contact.sub">Напишіть — відповідаємо протягом години.</p>
+    <div class="chips">
+      <a class="chip" data-config-href="contacts.instagram" href="#"><span class="chip__ic">IG</span>Instagram</a>
+      <a class="chip" data-config-href="contacts.telegram"  href="#"><span class="chip__ic">TG</span>Telegram</a>
+      <a class="chip" data-config-href="contacts.whatsapp"  href="#"><span class="chip__ic">WA</span>WhatsApp</a>
+      <a class="chip" data-config-href="contacts.viber"     href="#"><span class="chip__ic">VB</span>Viber</a>
+    </div>
+    <p class="contact__addr"><span data-config="location">Київ · Поділ</span> · <span data-config="hours">Пн–Сб 10:00–20:00</span></p>
+  </section>
+
+  <div class="foot">Fern nail art<small>© 2026</small></div>
+</main>
+
+<div class="bottomCta">
+  <a href="#calc" class="btn btn--ghost" data-i18n="nav.calculator">Калькулятор</a>
+  <a href="#"     class="btn btn--primary" data-i18n="book">Записатися</a>
+</div>
+
+<div class="lm" id="lm" role="dialog" aria-modal="true">
+  <div class="lm__sheet">
+    <div class="lm__row" data-lang="ua"><div><b>Українська</b><small>Ukrainian</small></div><div class="lm__check is-on">✓</div></div>
+    <div class="lm__row" data-lang="ru"><div><b>Русский</b><small>Russian</small></div><div class="lm__check"></div></div>
+    <div class="lm__row" data-lang="en"><div><b>English</b><small>English</small></div><div class="lm__check"></div></div>
+  </div>
+</div>
+
+<script type="module" src="./scripts/main.js"></script>
+</body>
+</html>

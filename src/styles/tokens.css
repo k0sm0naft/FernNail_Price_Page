@@ -1,0 +1,122 @@
+/* ───────────────────────────────────────────────────────────────────
+   Fern nail art — Design Tokens
+   Implementable as plain CSS custom properties (no Tailwind required)
+   Aesthetic: dark green-undertoned background, botanical, premium-calm
+   ─────────────────────────────────────────────────────────────────── */
+
+@font-face {
+  font-family: "Hamiltone";
+  src: url("/assets/fonts/Hamiltone-Demo.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* ── Color: backgrounds ────────────────────────────────────────── */
+  --bg:               oklch(0.16 0.012 155);
+  --bg-deep:          oklch(0.12 0.012 155);
+  --surface:          oklch(0.22 0.018 155 / 0.55);
+  --surface-solid:    oklch(0.22 0.018 155);
+  --surface-elevated: oklch(0.27 0.020 155 / 0.75);
+
+  /* ── Color: text ───────────────────────────────────────────────── */
+  --text:             oklch(0.96 0.005 145);
+  --text-muted:       oklch(0.74 0.012 145);
+  --text-faint:       oklch(0.55 0.015 145);
+
+  /* ── Color: accents (sage / fern) ──────────────────────────────── */
+  --accent:           oklch(0.78 0.085 150);
+  --accent-bright:    oklch(0.86 0.110 150);
+  --accent-muted:     oklch(0.45 0.045 150);
+
+  /* ── Color: state ──────────────────────────────────────────────── */
+  --success:          oklch(0.78 0.110 150);
+  --error:            oklch(0.70 0.150 25);
+  --warn:             oklch(0.82 0.120 80);
+
+  /* ── Color: borders ────────────────────────────────────────────── */
+  --border:           oklch(0.32 0.015 150 / 0.6);
+  --border-strong:    oklch(0.45 0.025 150 / 0.85);
+
+  /* ── Type: families ────────────────────────────────────────────── */
+  --font-script:  "Hamiltone", "Caveat", cursive;
+  --font-sans:    "Manrope", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif:   "Cormorant Garamond", "Cormorant", "EB Garamond", serif;
+
+  /* ── Type: scale (modular, ratio 1.250 — major third) ──────────── */
+  --fs-100: 0.75rem;
+  --fs-200: 0.875rem;
+  --fs-300: 1rem;
+  --fs-400: 1.125rem;
+  --fs-500: 1.25rem;
+  --fs-600: 1.5rem;
+  --fs-700: 1.875rem;
+  --fs-800: 2.5rem;
+  --fs-900: 3.5rem;
+  --fs-1000: 5.5rem;
+
+  --lh-tight: 1.1;
+  --lh-snug:  1.25;
+  --lh-body:  1.55;
+  --lh-loose: 1.75;
+
+  --fw-regular: 400;
+  --fw-medium:  500;
+  --fw-semibold:600;
+  --fw-bold:    700;
+
+  --tr-wide:    0.12em;
+  --tr-eyebrow: 0.24em;
+
+  /* ── Spacing (4px base, 8px primary rhythm) ────────────────────── */
+  --sp-1:  4px;
+  --sp-2:  8px;
+  --sp-3:  12px;
+  --sp-4:  16px;
+  --sp-5:  20px;
+  --sp-6:  24px;
+  --sp-8:  32px;
+  --sp-10: 40px;
+  --sp-12: 48px;
+  --sp-16: 64px;
+  --sp-20: 80px;
+  --sp-24: 96px;
+
+  /* ── Radius ────────────────────────────────────────────────────── */
+  --r-xs: 2px;
+  --r-sm: 4px;
+  --r-md: 8px;
+  --r-lg: 14px;
+  --r-xl: 22px;
+  --r-pill: 999px;
+
+  /* ── Shadow ────────────────────────────────────────────────────── */
+  --sh-1: 0 1px 2px oklch(0 0 0 / 0.4);
+  --sh-2: 0 6px 18px oklch(0 0 0 / 0.45);
+  --sh-3: 0 18px 48px oklch(0 0 0 / 0.55);
+  --sh-glow: 0 0 32px oklch(0.78 0.085 150 / 0.18);
+
+  /* ── Motion ────────────────────────────────────────────────────── */
+  --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 140ms;
+  --dur:      240ms;
+  --dur-slow: 480ms;
+
+  /* ── Layout ────────────────────────────────────────────────────── */
+  --container: 1280px;
+  --gutter:    24px;
+  --header-h:  64px;
+  --cta-h:     64px;
+}
+
+html, body { background: var(--bg); color: var(--text); }
+body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-300);
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+::selection { background: var(--accent); color: var(--bg-deep); }

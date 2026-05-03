@@ -1,0 +1,15 @@
+{
+  "name": "fern-nail-art",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Single-page price list & calculator for Fern nail art studio",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^6.0.7"
+  }
+}

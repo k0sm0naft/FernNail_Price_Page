@@ -1,0 +1,44 @@
+{
+  "_lang": "English",
+  "_iso": "en",
+  "currency": "UAH",
+  "from": "from",
+  "book": "Book now",
+  "nav": {
+    "services": "Services",
+    "calculator": "Calculator",
+    "contact": "Contact"
+  },
+  "hero": {
+    "eyebrow": "PRICE LIST · 2026",
+    "tag": "Manicure & pedicure studio · Kyiv",
+    "cta": "Open price list",
+    "cta2": "Try the calculator"
+  },
+  "calc": {
+    "eyebrow": "CALCULATOR",
+    "title": "Calculate your visit",
+    "subtitle": "Four quick questions — no commitment.",
+    "step": "Step",
+    "of": "of",
+    "next": "Next",
+    "back": "Back",
+    "finish": "See total",
+    "restart": "Start over",
+    "total": "Estimated total",
+    "summary": "Your selection",
+    "q1": { "t": "What service?", "opts": ["Manicure", "Pedicure", "Both"] },
+    "q2": { "t": "Nail length?",  "opts": ["Length 1–2", "Length 3+", "Extension needed"] },
+    "q3": { "t": "Coverage?",     "opts": ["No coating", "Single colour", "French (10 nails)"] },
+    "q4": { "t": "Add-ons?",      "opts": ["Slider art", "Rub-in / gradient", "Seal & Protect", "None"] }
+  },
+  "contact": {
+    "h": "Visit us",
+    "sub": "Tap to message — replies within an hour."
+  },
+  "lang": {
+    "ua": { "name": "Ukrainian", "native": "Українська" },
+    "ru": { "name": "Russian",   "native": "Русский" },
+    "en": { "name": "English",   "native": "English" }
+  }
+}
