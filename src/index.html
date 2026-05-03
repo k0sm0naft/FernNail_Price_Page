@@ -27,6 +27,7 @@
     <a href="#calc"     data-i18n="nav.calculator">Калькулятор</a>
     <a href="#contact"  data-i18n="nav.contact">Контакти</a>
   </nav>
+  <button type="button" class="hd__export" data-action="open-export" data-i18n="export.open">Експорт</button>
   <button type="button" class="hd__pay" data-action="open-pay" data-i18n="pay.open">Оплата</button>
   <div class="hd__lang" role="tablist" aria-label="Language">
     <button type="button" data-lang="ua" class="is-on">UA</button>
@@ -124,6 +125,40 @@
         <a class="chip" data-config-href="contacts.whatsapp" target="_blank" rel="noopener noreferrer" href="#"><span class="chip__ic">WA</span>WhatsApp</a>
       </div>
       <p class="pay__note" data-i18n="pay.note">У призначенні платежу вкажіть ваше ім’я.</p>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="exportModal" class="ex" aria-labelledby="exportTitle">
+  <div class="ex__sheet">
+    <header class="ex__head">
+      <h3 class="ex__title" id="exportTitle" data-i18n="export.title">Експорт у Instagram</h3>
+      <button type="button" class="ex__close" data-export-close aria-label="Close">×</button>
+    </header>
+    <div class="ex__body">
+      <div class="ex__controls">
+        <label class="ex__field">
+          <span data-i18n="export.format">Формат</span>
+          <select id="exportFormat"></select>
+        </label>
+        <label class="ex__field">
+          <span data-i18n="export.lang">Мова</span>
+          <select id="exportLang"></select>
+        </label>
+        <label class="ex__field ex__field-cat">
+          <span data-i18n="export.cat">Категорія</span>
+          <select id="exportCat"></select>
+        </label>
+      </div>
+      <div class="ex__preview-wrap">
+        <img class="ex__preview" id="exportPreview" alt="" />
+      </div>
+      <div class="ex__status" id="exportStatus" data-i18n="export.loading">Готую…</div>
+      <div class="ex__actions">
+        <a class="btn btn--primary" id="exportDownload" href="#" download="">
+          <span data-i18n="export.download">Завантажити PNG</span>
+        </a>
+      </div>
     </div>
   </div>
 </dialog>

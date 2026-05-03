@@ -1,0 +1,118 @@
+/* ── Export button in header (sits next to Pay) ──────────────── */
+.hd__export {
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  font: inherit; font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+  padding: 6px 14px; border-radius: var(--r-pill);
+  cursor: pointer;
+  transition: all var(--dur) var(--ease-out);
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.hd__export:hover { color: var(--text); border-color: var(--accent-muted); }
+
+/* ── Export dialog ───────────────────────────────────────────── */
+.ex {
+  border: 0; padding: 0; margin: auto;
+  background: transparent;
+  max-width: 92vw; width: 480px;
+  color: var(--text);
+}
+.ex::backdrop {
+  background: oklch(0.10 0.012 155 / 0.72);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.ex__sheet {
+  background: var(--surface-solid);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--r-lg);
+  box-shadow: var(--sh-3);
+  overflow: hidden;
+}
+.ex__head {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 20px 0;
+}
+.ex__title {
+  font-family: var(--font-script);
+  font-size: 30px; line-height: 1; margin: 0; color: var(--accent);
+  font-weight: 400;
+}
+.ex__close {
+  background: transparent; border: 0; cursor: pointer;
+  width: 32px; height: 32px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-muted); font-size: 22px;
+  transition: all var(--dur) var(--ease-out);
+}
+.ex__close:hover { color: var(--text); background: var(--surface); }
+
+.ex__body {
+  padding: 14px 20px 20px;
+  display: flex; flex-direction: column; gap: 14px;
+}
+
+.ex__controls {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+}
+.ex__field {
+  display: flex; flex-direction: column; gap: 4px;
+}
+.ex__field > span {
+  font-size: 10px; font-weight: 500;
+  letter-spacing: var(--tr-eyebrow); text-transform: uppercase;
+  color: var(--accent);
+}
+.ex__field select {
+  background: oklch(0.18 0.012 155 / 0.6);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 10px 14px;
+  color: var(--text); font: inherit; font-size: 14px;
+  appearance: none; -webkit-appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, var(--text-muted) 50%),
+                    linear-gradient(135deg, var(--text-muted) 50%, transparent 50%);
+  background-position: calc(100% - 18px) center, calc(100% - 13px) center;
+  background-size: 5px 5px;
+  background-repeat: no-repeat;
+  padding-right: 32px;
+  cursor: pointer;
+  width: 100%;
+}
+.ex__field select:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+.ex__field-cat { grid-column: 1 / -1; }
+
+.ex__preview-wrap {
+  background: oklch(0.10 0.012 155 / 0.6);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 14px;
+  display: flex; align-items: center; justify-content: center;
+  min-height: 280px;
+  position: relative;
+}
+.ex__preview {
+  max-width: 100%;
+  max-height: 360px;
+  width: auto; height: auto;
+  display: block;
+  box-shadow: var(--sh-2);
+  border-radius: 4px;
+  background: var(--bg-deep);
+  transition: opacity var(--dur);
+}
+.ex__preview.is-loading { opacity: 0.4; }
+
+.ex__status {
+  font-size: 12px; color: var(--text-muted);
+  text-align: center;
+}
+.ex__status.is-loading { color: var(--accent); }
+.ex__status.is-error   { color: var(--error); }
+
+.ex__actions {
+  display: flex; gap: 10px;
+}
+.ex__actions .btn { flex: 1; }

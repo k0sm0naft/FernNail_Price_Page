@@ -1,12 +1,14 @@
 import '../styles/tokens.css';
 import '../styles/main.css';
 import '../styles/payment.css';
+import '../styles/export-ui.css';
 
 import config from '../data/config.json';
 import { setLang, getLang, renderI18n } from './i18n.js';
 import { renderServices } from './services.js';
 import { renderCalculator, getLastTotal } from './calculator.js';
 import { initPayment } from './payment.js';
+import { initExport, rerenderExportLabels } from './export.js';
 
 const $ = (sel, root = document) => root.querySelector(sel);
 const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
@@ -47,6 +49,7 @@ function rerenderAll() {
   renderServices($('#svcGrid'));
   renderCalculator($('#calcBody'));
   syncLangPills();
+  rerenderExportLabels();
 }
 
 function setupLangSwitching() {
@@ -101,3 +104,4 @@ setupLangSwitching();
 setupSmoothScroll();
 setupParallax();
 initPayment(() => getLastTotal());
+initExport();

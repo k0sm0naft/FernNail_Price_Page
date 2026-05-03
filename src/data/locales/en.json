@@ -61,5 +61,21 @@
     "note": "Add your name to the payment description.",
     "close": "Close",
     "noJar": "Monobank details aren’t set yet"
+  },
+  "export": {
+    "open": "Export",
+    "title": "Export to Instagram",
+    "format": "Format",
+    "lang": "Language",
+    "cat": "Category",
+    "catAll": "Full price list",
+    "download": "Download PNG",
+    "loading": "Preparing…",
+    "ready": "Ready · cached PNG",
+    "rendered": "Rendered live",
+    "failed": "Couldn’t generate",
+    "fmtStories": "Stories · 1080×1920",
+    "fmtSquare":  "Square · 1080×1080",
+    "fmtPortrait":"Portrait · 1080×1350"
   }
 }
