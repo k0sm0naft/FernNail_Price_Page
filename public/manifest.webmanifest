@@ -1,0 +1,15 @@
+{
+  "name": "Fern nail art",
+  "short_name": "Fern",
+  "description": "Manicure & pedicure studio — price list and visit calculator.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#131a16",
+  "theme_color": "#1a201c",
+  "icons": [
+    { "src": "favicon.svg", "type": "image/svg+xml", "sizes": "any", "purpose": "any maskable" }
+  ],
+  "categories": ["lifestyle", "shopping"]
+}

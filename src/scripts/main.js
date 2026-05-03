@@ -9,6 +9,7 @@ import { renderServices } from './services.js';
 import { renderCalculator, getLastTotal } from './calculator.js';
 import { initPayment } from './payment.js';
 import { initExport, rerenderExportLabels } from './export.js';
+import { registerPwa } from './pwa.js';
 
 const $ = (sel, root = document) => root.querySelector(sel);
 const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
@@ -105,3 +106,4 @@ setupSmoothScroll();
 setupParallax();
 initPayment(() => getLastTotal());
 initExport();
+registerPwa();
