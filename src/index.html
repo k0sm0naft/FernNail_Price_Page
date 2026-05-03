@@ -27,6 +27,7 @@
     <a href="#calc"     data-i18n="nav.calculator">Калькулятор</a>
     <a href="#contact"  data-i18n="nav.contact">Контакти</a>
   </nav>
+  <button type="button" class="hd__pay" data-action="open-pay" data-i18n="pay.open">Оплата</button>
   <div class="hd__lang" role="tablist" aria-label="Language">
     <button type="button" data-lang="ua" class="is-on">UA</button>
     <button type="button" data-lang="ru">RU</button>
@@ -91,6 +92,41 @@
     <div class="lm__row" data-lang="en"><div><b>English</b><small>English</small></div><div class="lm__check"></div></div>
   </div>
 </div>
+
+<dialog id="payModal" class="pay" aria-labelledby="payTitle">
+  <div class="pay__sheet">
+    <header class="pay__head">
+      <h3 class="pay__title" id="payTitle" data-i18n="pay.title">Оплатити візит</h3>
+      <button type="button" class="pay__close" data-pay-close aria-label="Close">×</button>
+    </header>
+    <div class="pay__body">
+      <label class="pay__field">
+        <span data-i18n="pay.amount">Сума</span>
+        <span class="pay__input-wrap">
+          <input type="number" inputmode="numeric" id="payAmount" min="0" step="50" placeholder="0" />
+          <small data-i18n="currency">грн</small>
+        </span>
+      </label>
+      <div class="pay__card">
+        <span class="pay__field"><span data-i18n="pay.card">Картка одержувача</span></span>
+        <div class="pay__card__num"><span data-config="payment.card">5375 4141 0000 0000</span></div>
+        <div class="pay__copy-row">
+          <button type="button" class="btn btn--ghost" id="payCopy" data-i18n="pay.copy">Скопіювати номер</button>
+          <span class="pay__toast" id="payToast" data-i18n="pay.copied">Скопійовано ✓</span>
+        </div>
+      </div>
+      <a class="btn btn--primary btn--block" id="payMono" target="_blank" rel="noopener noreferrer" href="#">
+        <span data-i18n="pay.openMono">Відкрити Monobank</span> →
+      </a>
+      <div class="pay__or"><span data-i18n="pay.or">або зв’яжіться напряму</span></div>
+      <div class="pay__contacts">
+        <a class="chip" data-config-href="contacts.telegram" target="_blank" rel="noopener noreferrer" href="#"><span class="chip__ic">TG</span>Telegram</a>
+        <a class="chip" data-config-href="contacts.whatsapp" target="_blank" rel="noopener noreferrer" href="#"><span class="chip__ic">WA</span>WhatsApp</a>
+      </div>
+      <p class="pay__note" data-i18n="pay.note">У призначенні платежу вкажіть ваше ім’я.</p>
+    </div>
+  </div>
+</dialog>
 
 <script type="module" src="./scripts/main.js"></script>
 </body>

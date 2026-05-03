@@ -47,5 +47,19 @@
     "back": "Back to site",
     "scanToPay": "Scan the QR to pay online",
     "validFrom": "Valid from"
+  },
+  "pay": {
+    "open": "Pay",
+    "title": "Pay for your visit",
+    "amount": "Amount",
+    "amountPh": "Enter amount",
+    "card": "Recipient card",
+    "copy": "Copy number",
+    "copied": "Copied ✓",
+    "openMono": "Open Monobank",
+    "or": "or message us directly",
+    "note": "Add your name to the payment description.",
+    "close": "Close",
+    "noJar": "Monobank details aren’t set yet"
   }
 }

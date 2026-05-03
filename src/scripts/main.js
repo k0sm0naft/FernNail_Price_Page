@@ -1,10 +1,12 @@
 import '../styles/tokens.css';
 import '../styles/main.css';
+import '../styles/payment.css';
 
 import config from '../data/config.json';
 import { setLang, getLang, renderI18n } from './i18n.js';
 import { renderServices } from './services.js';
-import { renderCalculator } from './calculator.js';
+import { renderCalculator, getLastTotal } from './calculator.js';
+import { initPayment } from './payment.js';
 
 const $ = (sel, root = document) => root.querySelector(sel);
 const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
@@ -98,3 +100,4 @@ rerenderAll();
 setupLangSwitching();
 setupSmoothScroll();
 setupParallax();
+initPayment(() => getLastTotal());

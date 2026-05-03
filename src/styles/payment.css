@@ -1,0 +1,148 @@
+/* ── Pay button in header ───────────────────────────────────── */
+.hd__pay {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--accent-muted);
+  font: inherit; font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+  padding: 6px 14px; border-radius: var(--r-pill);
+  cursor: pointer;
+  transition: all var(--dur) var(--ease-out);
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.hd__pay:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.hd__pay::before {
+  content: '';
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 3px oklch(0.78 0.085 150 / 0.18);
+}
+
+/* ── Pay dialog ─────────────────────────────────────────────── */
+.pay {
+  border: 0; padding: 0; margin: auto;
+  background: transparent;
+  max-width: 92vw; width: 380px;
+  color: var(--text);
+}
+.pay::backdrop {
+  background: oklch(0.10 0.012 155 / 0.72);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.pay__sheet {
+  background: var(--surface-solid);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--r-lg);
+  box-shadow: var(--sh-3);
+  overflow: hidden;
+}
+.pay__head {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 20px 0;
+}
+.pay__title {
+  font-family: var(--font-script);
+  font-size: 32px; line-height: 1; margin: 0; color: var(--accent);
+  font-weight: 400;
+}
+.pay__close {
+  background: transparent; border: 0; cursor: pointer;
+  width: 32px; height: 32px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-muted); font-size: 22px;
+  transition: all var(--dur) var(--ease-out);
+}
+.pay__close:hover { color: var(--text); background: var(--surface); }
+
+.pay__body {
+  padding: 16px 20px 20px;
+  display: flex; flex-direction: column; gap: 14px;
+}
+
+.pay__field {
+  display: flex; flex-direction: column; gap: 6px;
+}
+.pay__field > span {
+  font-size: 11px; font-weight: 500;
+  letter-spacing: var(--tr-eyebrow); text-transform: uppercase;
+  color: var(--accent);
+}
+.pay__input-wrap {
+  display: flex; align-items: center; gap: 8px;
+  padding: 12px 14px;
+  background: oklch(0.18 0.012 155 / 0.6);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  transition: border-color var(--dur);
+}
+.pay__input-wrap:focus-within { border-color: var(--accent); }
+.pay__input-wrap input {
+  flex: 1;
+  background: transparent; border: 0; outline: 0;
+  color: var(--text); font: inherit; font-size: 18px; font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  min-width: 0; width: 100%;
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+.pay__input-wrap input::-webkit-outer-spin-button,
+.pay__input-wrap input::-webkit-inner-spin-button {
+  -webkit-appearance: none; margin: 0;
+}
+.pay__input-wrap small {
+  font-size: 13px; color: var(--text-muted); flex: 0 0 auto;
+}
+
+.pay__card {
+  background: oklch(0.18 0.012 155 / 0.6);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 14px;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.pay__card__num {
+  font-family: ui-monospace, "SF Mono", monospace;
+  font-size: 17px; letter-spacing: 0.06em;
+  font-variant-numeric: tabular-nums;
+  word-spacing: 0.2em;
+  text-align: center;
+  padding: 4px 0;
+}
+.pay__copy-row {
+  display: flex; align-items: center; gap: 10px; justify-content: center;
+}
+.pay__toast {
+  font-size: 12px; color: var(--success);
+  opacity: 0; transition: opacity var(--dur);
+}
+.pay__toast.is-on { opacity: 1; }
+
+.pay__or {
+  display: flex; align-items: center; gap: 12px;
+  font-size: 11px; letter-spacing: var(--tr-wide); text-transform: uppercase;
+  color: var(--text-faint); margin: 4px 0 -2px;
+}
+.pay__or::before, .pay__or::after {
+  content: ''; flex: 1; height: 1px; background: var(--border);
+}
+
+.pay__contacts {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+}
+.pay__contacts .chip {
+  padding: 10px; font-size: 12px;
+}
+
+.pay__note {
+  font-family: var(--font-serif); font-style: italic;
+  font-size: 12px; color: var(--text-muted);
+  text-align: center;
+  margin: 0;
+}
+
+.pay__btn-disabled[aria-disabled="true"] {
+  opacity: 0.5; pointer-events: none; cursor: not-allowed;
+}
